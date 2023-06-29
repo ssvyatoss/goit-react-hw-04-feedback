@@ -1,23 +1,30 @@
-import PropTypes from 'prop-types'
-import { FeedbackStatisticsStyled, StatisticsButtonStyled } from './FeedbackStatistics.styled';
+import PropTypes from 'prop-types';
+import {
+  FeedbackStatisticsStyled,
+  StatisticsButtonStyled,
+} from './FeedbackStatistics.styled';
 
-export const FeedbackStatistics = ({rate, handleChangeRate}) => {
+export const FeedbackStatistics = ({ rate, handleChangeRate }) => {
   return (
     <FeedbackStatisticsStyled>
-    {rate.map(rateButton => {
+      {rate.map(rateButton => {
         return (
-            <StatisticsButtonStyled key={rateButton} type="button" onClick={() => {
-                handleChangeRate(rateButton);
-            }}>
-                {rateButton}
-            </StatisticsButtonStyled>
-        )
-    })}
+          <StatisticsButtonStyled
+            key={rateButton}
+            type="button"
+            onClick={() => {
+              handleChangeRate(rateButton);
+            }}
+          >
+            {rateButton}
+          </StatisticsButtonStyled>
+        );
+      })}
     </FeedbackStatisticsStyled>
-  )
-}
+  );
+};
 
 FeedbackStatistics.propTypes = {
-    rate: PropTypes.arrayOf(PropTypes.string),
-    handleChangeRate: PropTypes.func,
-}
+  rate: PropTypes.arrayOf(PropTypes.string),
+  handleChangeRate: PropTypes.func,
+};
